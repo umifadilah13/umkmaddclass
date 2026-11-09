@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nasi Goreng Legend - Link in Bio & Digital Menu</title>
+  
+  <!-- Tailwind CSS CDN (Materi P2) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Google Font: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Wonosobo Sans', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#fff7ed',
+              100: '#ffedd5',
+              500: '#f97316', // Warna khas api / nasi goreng
+              600: '#ea580c',
+              700: '#c2410c',
+              900: '#7c2d12',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  
+  <style>
+    /* Custom scrollbar halus untuk kategori */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-slate-900 text-slate-100 font-sans min-h-screen flex justify-center py-0 sm:py-6 px-0 sm:px-4 selection:bg-brand-500 selection:text-white">
+
+  <!-- ==================== CONTAINER UTAMA MOBILE-FIRST ==================== -->
+  <main class="w-full max-w-md bg-slate-950 sm:rounded-3xl shadow-2xl shadow-brand-500/10 overflow-hidden border border-slate-800/80 flex flex-col justify-between min-h-screen sm:min-h-[92vh] relative">
+
+    <!-- Sticky Header & Cart Trigger Bar -->
+    <header class="sticky top-0 z-30 bg-slate-950/80 backdrop-blur-md border-b border-slate-800/80 px-5 py-3.5 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+        <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400">Toko Buka • 17:00 - 23:50</span>
+      </div>
+      <button onclick="toggleCartModal()" class="relative bg-brand-600 hover:bg-brand-700 text-white p-2 rounded-xl text-xs font-bold transition flex items-center gap-2 px-3 shadow-lg shadow-brand-600/30">
+        <i class="fa-solid fa-basket-shopping text-sm"></i>
+        <span id="cart-badge-count" class="bg-white text-brand-700 text-[10px] px-1.5 py-0.5 rounded-full font-black">0</span>
+      </button>
+    </header>
+
+    <div class="p-5 space-y-6 pb-24">
+      
+      <!-- ==================== PROFIL UMKM (P1 Semantic Header) ==================== -->
+      <section class="text-center pt-2">
+        <div class="relative inline-block group">
+          <!-- Photo Profile / Logo UMKM -->
+          <img src="https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=400&auto=format&fit=crop&q=80" 
+               alt="Nasi Goreng Legend Logo" 
+               class="w-28 h-28 rounded-3xl object-cover mx-auto ring-4 ring-brand-500/30 shadow-xl shadow-brand-500/20 group-hover:scale-105 transition-transform duration-300">
+          <div class="absolute -bottom-2 right-1/2 translate-x-1/2 bg-gradient-to-r from-brand-600 to-amber-500 text-white text-[10px] font-extrabold px-3 py-1 rounded-full shadow-lg whitespace-nowrap flex items-center gap-1">
+            <i class="fa-solid fa-fire text-yellow-300"></i> RESEP WARISAN
+          </div>
+        </div>
+
+        <h1 class="text-2xl font-extrabold mt-4 text-white tracking-tight">Nasi Goreng 🍳</h1>
+        <p class="text-xs text-slate-400 mt-1 max-w-xs mx-auto leading-relaxed">
+          Nasi Goreng Rempah Racikan Spesial dengan Aroma Gileee Smokey Wok-Hei Terbaik di Kota!
+        </p>
+
+        <!-- Stat Badges -->
+        <div class="flex justify-center items-center gap-4 mt-4 text-xs text-slate-300 border-y border-slate-800/80 py-2.5">
+          <div class="flex items-center gap-1.5">
+            <i class="fa-solid fa-star text-amber-400"></i>
+            <span class="font-bold">4.9</span> <span class="text-slate-500">(500+ ulasan)</span>
+          </div>
+          <div class="h-3 w-px bg-slate-800"></div>
+          <div class="flex items-center gap-1.5">
+            <i class="fa-solid fa-motorcycle text-brand-500"></i>
+            <span>Siap Kirim / COD</span>
+          </div>
+        </div>
+
+        <!-- Social Links (Link-in-bio Standard) -->
+        <div class="flex justify-center gap-3 mt-4">
+          <a href="#" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-brand-500 hover:border-brand-500/50 transition">
+            <i class="fa-brands fa-instagram text-sm"></i>
+          </a>
+          <a href="#" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-brand-500 hover:border-brand-500/50 transition">
+            <i class="fa-brands fa-tiktok text-sm"></i>
+          </a>
+          <a href="https://wa.me/6281234567890" target="_blank" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-emerald-500 hover:border-emerald-500/50 transition">
+            <i class="fa-brands fa-whatsapp text-sm"></i>
+          </a>
+          <a href="#" onclick="showLocationModal()" class="w-9 h-9 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-amber-500 hover:border-amber-500/50 transition">
+            <i class="fa-solid fa-map-location-dot text-sm"></i>
+          </a>
+        </div>
+      </section>
+
+      <!-- ==================== BANNER PROMO (Nilai Plus UI) ==================== -->
+      <div class="bg-gradient-to-r from-brand-900/40 via-brand-600/20 to-amber-900/30 border border-brand-500/30 rounded-2xl p-4 flex items-center justify-between relative overflow-hidden">
+        <div class="space-y-1 relative z-10">
+          <span class="bg-brand-500 text-white text-[9px] font-black px-2 py-0.5 rounded-full uppercase tracking-widest">Promo Hari Ini</span>
+          <h3 class="text-sm font-bold text-white">Diskon 10% Pembelian Pertama</h3>
+          <p class="text-[11px] text-slate-300">Gunakan Kode: <span class="font-mono text-amber-300 font-bold">NASIGORENG10</span></p>
+        </div>
+        <i class="fa-solid fa-utensils text-5xl text-brand-500/10 absolute -right-2 -bottom-2"></i>
+      </div>
+
+      <!-- ==================== KATALOG MENU DIGITAL (P3 DOM Manipulation) ==================== -->
+      <section class="space-y-4">
+        
+        <!-- Search & Filter Controls -->
+        <div class="space-y-3">
+          <div class="relative">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs"></i>
+            <input type="text" id="search-input" onkeyup="filterProducts()" placeholder="Cari varian nasi goreng..." 
+                   class="w-full bg-slate-900 border border-slate-800 text-xs rounded-xl pl-9 pr-4 py-2.5 text-slate-200 placeholder-slate-500 focus:outline-none focus:border-brand-500 transition">
+          </div>
+
+          <!-- Category Chips -->
+          <div class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-1 text-xs">
+            <button onclick="filterCategory('all')" class="category-btn active border px-3.5 py-1.5 rounded-xl font-medium whitespace-nowrap transition bg-brand-600 text-white border-brand-500" data-category="all">🔥 Semua Menu</button>
+            <button onclick="filterCategory('spesial')" class="category-btn border border-slate-800 bg-slate-900 text-slate-400 hover:text-slate-200 px-3.5 py-1.5 rounded-xl font-medium whitespace-nowrap transition" data-category="spesial">🍳 Spesial</button>
+            <button onclick="filterCategory('pedas')" class="category-btn border border-slate-800 bg-slate-900 text-slate-400 hover:text-slate-200 px-3.5 py-1.5 rounded-xl font-medium whitespace-nowrap transition" data-category="pedas">🌶️ Pedas Gila</button>
+            <button onclick="filterCategory('minuman')" class="category-btn border border-slate-800 bg-slate-900 text-slate-400 hover:text-slate-200 px-3.5 py-1.5 rounded-xl font-medium whitespace-nowrap transition" data-category="minuman">🍹 Minuman</button>
+          </div>
+        </div>
+
+        <!-- Product Grid Container (Generated Dynamically via JS) -->
+        <div id="product-container" class="space-y-3">
+          <!-- Rendered items go here -->
+        </div>
+      </section>
+
+      <!-- ==================== BUKTI KUALITAS / TESTIMONI (Nilai Plus) ==================== -->
+      <section class="border-t border-slate-900 pt-5 space-y-3">
+        <h3 class="text-xs font-bold uppercase tracking-wider text-slate-400 text-center">Kata Pelanggan Setia</h3>
+        <div class="bg-slate-900/60 border border-slate-800 rounded-2xl p-3.5 space-y-2">
+          <div class="flex justify-between items-center text-xs">
+            <span class="font-bold text-slate-200">Eva Nasgor (Wonosobo)</span>
+            <div class="text-amber-400 text-[10px] space-x-0.5">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+          </div>
+          <p class="text-xs text-slate-400 italic">"Aroma smokey wok-hei nya dapet banget! Porsi kenyang, bumbu kerasa sampai ke bulir nasi terakhir."</p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- ==================== FOOTER SEMANTIC (P1) ==================== -->
+    <footer class="bg-slate-900/90 border-t border-slate-800/80 py-4 text-center text-xs text-slate-500">
+      <p>&copy; 2026 Nasi Goreng Legend UMKM.</p>
+      <p class="text-[10px] text-slate-600 mt-1">Dibuat dengan 🔥 & Cinta Developer UMKM</p>
+    </footer>
+
+    <!-- ==================== FLOATING QUICK CHECKOUT BAR ==================== -->
+    <div id="floating-cart-bar" class="fixed bottom-3 left-1/2 -translate-x-1/2 w-[92%] max-w-md bg-gradient-to-r from-brand-600 to-amber-600 text-white rounded-2xl p-3 shadow-2xl shadow-brand-600/40 flex items-center justify-between border border-brand-400/30 transition-transform duration-300 translate-y-32 z-40">
+      <div class="flex items-center gap-3">
+        <div class="bg-white/20 rounded-xl w-10 h-10 flex items-center justify-center font-bold text-sm">
+          <span id="floating-cart-count">0</span>x
+        </div>
+        <div>
+          <div class="text-[10px] uppercase tracking-wider text-brand-100 font-semibold">Total Pesanan</div>
+          <div id="floating-cart-total" class="font-extrabold text-sm">Rp 0</div>
+        </div>
+      </div>
+      <button onclick="toggleCartModal()" class="bg-slate-950 hover:bg-slate-900 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition flex items-center gap-2">
+        Pesan <i class="fa-solid fa-arrow-right text-xs"></i>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- ==================== MODAL CART & ORDER CUSTOMIZATION (P3 DOM & P4 Logic) ==================== -->
+  <div id="cart-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-end sm:items-center justify-center opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-slate-900 border border-slate-800 w-full max-w-md rounded-t-3xl sm:rounded-3xl max-h-[85vh] flex flex-col justify-between overflow-hidden shadow-2xl">
+      
+      <!-- Modal Header -->
+      <div class="p-4 border-b border-slate-800 flex justify-between items-center bg-slate-950">
+        <div class="flex items-center gap-2">
+          <i class="fa-solid fa-bag-shopping text-brand-500"></i>
+          <h3 class="font-bold text-sm text-white">Keranjang & Detail Pesanan</h3>
+        </div>
+        <button onclick="toggleCartModal()" class="text-slate-400 hover:text-white p-1">
+          <i class="fa-solid fa-xmark text-base"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body (Cart Items List) -->
+      <div id="cart-items-container" class="p-4 overflow-y-auto space-y-3 flex-1 text-xs">
+        <!-- Rendered items via JS -->
+      </div>
+
+      <!-- Form Data Pemesan & Checkout -->
+      <div class="p-4 bg-slate-950 border-t border-slate-800 space-y-3">
+        <div class="space-y-2">
+          <input type="text" id="customer-name" placeholder="Nama Lengkap Pemesan *" 
+                 class="w-full bg-slate-900 border border-slate-800 text-xs rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-brand-500">
+          <textarea id="customer-notes" rows="2" placeholder="Catatan Khusus (Contoh: Tanpa daun bawang, pedas sedang, bumbu dipisah...)" 
+                    class="w-full bg-slate-900 border border-slate-800 text-xs rounded-xl px-3 py-2 text-slate-200 focus:outline-none focus:border-brand-500"></textarea>
+        </div>
+
+        <div class="flex justify-between items-center pt-2 text-xs">
+          <span class="text-slate-400">Total Pembayaran:</span>
+          <span id="modal-total-price" class="font-extrabold text-base text-brand-500">Rp 0</span>
+        </div>
+
+        <button onclick="sendWhatsAppOrder()" class="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3 rounded-xl text-xs flex items-center justify-center gap-2 transition shadow-lg shadow-emerald-600/20">
+          <i class="fa-brands fa-whatsapp text-base"></i> Kirim Pesanan via WhatsApp
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ==================== MODAL LOKASI TOKO ==================== -->
+  <div id="location-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300">
+    <div class="bg-slate-900 border border-slate-800 w-full max-w-sm rounded-3xl p-5 space-y-4 text-center">
+      <div class="w-12 h-12 bg-amber-500/10 text-amber-400 rounded-2xl flex items-center justify-center mx-auto text-xl">
+        <i class="fa-solid fa-location-dot"></i>
+      </div>
+      <h3 class="font-bold text-sm text-white">Lokasi Kedai Nasi Goreng Legend</h3>
+      <p class="text-xs text-slate-400">Jl. Ahmad Yani No. 88, Kutoanyar, Wonosobo (Samping Bank Central, Depan Taman Kota)</p>
+      <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 text-left text-[11px] text-slate-400 space-y-1">
+        <p><strong class="text-slate-200">Jam Operasional:</strong> 17.00 - 23.50 WIB</p>
+        <p><strong class="text-slate-200">Patokan:</strong> Gerobak Merah Kebanggaan</p>
+      </div>
+      <button onclick="closeLocationModal()" class="w-full bg-slate-800 hover:bg-slate-700 text-white font-bold py-2.5 rounded-xl text-xs transition">
+        Tutup
+      </button>
+    </div>
+  </div>
+
+  <!-- ==================== JAVASCRIPT LOGIC (Materi P3 DOM & P4 App Logic) ==================== -->
+  <script>
+    // DATA PRODUK UMKM NASI GORENG (Mudah diedit developer/pemilik usaha)
+    const PRODUCTS = [
+      {
+        id: 1,
+        name: "Nasi Goreng Spesial Legend",
+        category: "spesial",
+        price: 22000,
+        desc: "Lengkap dengan Telur Ceplok/Dadar, Ayam Suwir, Bakso, dan Keripik Bawang.",
+        image: "https://images.unsplash.com/photo-1603133872878-684f208fb84b?w=300&auto=format&fit=crop&q=80",
+        tag: "Terlaris 🔥"
+      },
+      {
+        id: 2,
+        name: "Nasi Goreng Petai Babat Kelazz",
+        category: "spesial",
+        price: 26000,
+        desc: "Aroma khas petai segar dipadu babat sapi kenyal dan bumbu hitam khas.",
+        image: "https://images.unsplash.com/photo-1512058564366-18510be2db19?w=300&auto=format&fit=crop&q=80",
+        tag: "Favorit"
+      },
+      {
+        id: 3,
+        name: "Nasi Goreng Chili Oil Pedas Gila",
+        category: "pedas",
+        price: 20000,
+        desc: "Untuk pecinta pedas ekstrem! Menggunakan racikan cabai rawit murni & Chili Oil.",
+        image: "https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=300&auto=format&fit=crop&q=80",
+        tag: "Pedas 🌶️"
+      },
+      {
+        id: 4,
+        name: "Nasi Goreng Seafood Cumi Hitam",
+        category: "spesial",
+        price: 28000,
+        desc: "Cumi segar dengan tinta alami, udang manis, dan rempah tumis gurih.",
+        image: "https://images.unsplash.com/photo-1541592106381-b31e9677c0e5?w=300&auto=format&fit=crop&q=80",
+        tag: "Premium"
+      },
+      {
+        id: 5,
+        name: "Nasi Goreng Kampung Original",
+        category: "spesial",
+        price: 16000,
+        desc: "Nasi goreng bumbu bawang merah, terasi udang khas, dan potongan ayam.",
+        image: "https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=300&auto=format&fit=crop&q=80",
+        tag: "Klasik"
+      },
+      {
+        id: 6,
+        name: "Es Teh Manis Jumbo",
+        category: "minuman",
+        price: 5000,
+        desc: "Teh tubruk wangi melati, manis pas menyegarkan dahaga.",
+        image: "https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=300&auto=format&fit=crop&q=80",
+        tag: "Segar"
+      },
+      {
+        id: 7,
+        name: "Es Jeruk Peras Murni",
+        category: "minuman",
+        price: 7000,
+        desc: "Jeruk peras asli tanpa pemanis buatan.",
+        image: "https://images.unsplash.com/photo-1613478223719-2ab802602423?w=300&auto=format&fit=crop&q=80",
+        tag: "Favorit"
+      }
+    ];
+
+    // NOMOR WHATSAPP UMKM (Ganti nomor ini saat diserahkan ke penjual)
+    const ADMIN_WHATSAPP = "6281234567890";
+
+    // STATE KERANJANG BELANJA
+    let cart = [];
+
+    // RENDER PRODUK SAAT INITIAL LOAD
+    window.onload = function() {
+      renderProducts(PRODUCTS);
+    };
+
+    // FUNCTION RENDER KATALOG (DOM MANIPULATION)
+    function renderProducts(items) {
+      const container = document.getElementById('product-container');
+      container.innerHTML = '';
+
+      if(items.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-slate-500 text-xs">
+            <i class="fa-solid fa-bowl-rice text-3xl mb-2 text-slate-700"></i>
+            <p>Menu tidak ditemukan...</p>
+          </div>
+        `;
+        return;
+      }
+
+      items.forEach(product => {
+        const productEl = document.createElement('div');
+        productEl.className = "flex items-center justify-between p-3 rounded-2xl border border-slate-800/80 bg-slate-900/50 hover:bg-slate-900 transition duration-200 group";
+        
+        productEl.innerHTML = `
+          <div class="flex items-center gap-3">
+            <div class="relative">
+              <img src="${product.image}" alt="${product.name}" class="w-16 h-16 rounded-xl object-cover border border-slate-800 group-hover:scale-105 transition duration-300">
+              <span class="absolute -top-1.5 -left-1.5 bg-brand-600 text-white text-[9px] font-black px-1.5 py-0.5 rounded-md shadow">${product.tag}</span>
+            </div>
+            <div class="space-y-0.5">
+              <h3 class="font-bold text-xs text-white group-hover:text-brand-500 transition">${product.name}</h3>
+              <p class="text-[10px] text-slate-400 line-clamp-1 max-w-[170px]">${product.desc}</p>
+              <div class="text-xs font-black text-brand-500">Rp ${product.price.toLocaleString('id-ID')}</div>
+            </div>
+          </div>
+          <button onclick="addToCart(${product.id})" class="bg-brand-600/20 hover:bg-brand-600 text-brand-400 hover:text-white border border-brand-500/40 text-xs px-3 py-2 rounded-xl font-bold transition active:scale-95 flex items-center gap-1.5 shrink-0">
+            <i class="fa-solid fa-plus text-[10px]"></i> Tambah
+          </button>
+        `;
+        container.appendChild(productEl);
+      });
+    }
+
+    // ADD TO CART LOGIC
+    function addToCart(productId) {
+      const product = PRODUCTS.find(p => p.id === productId);
+      const existingItem = cart.find(item => item.id === productId);
+
+      if (existingItem) {
+        existingItem.qty += 1;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+
+      updateCartUI();
+    }
+
+    // UPDATE UI KERANJANG (BADGE & FLOATING BAR)
+    function updateCartUI() {
+      const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+      const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+
+      // Badge Count Top Bar
+      document.getElementById('cart-badge-count').textContent = totalQty;
+
+      // Floating Cart Bar Bottom
+      const floatingBar = document.getElementById('floating-cart-bar');
+      if (totalQty > 0) {
+        floatingBar.classList.remove('translate-y-32');
+        document.getElementById('floating-cart-count').textContent = totalQty;
+        document.getElementById('floating-cart-total').textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+      } else {
+        floatingBar.classList.add('translate-y-32');
+      }
+
+      // Render items inside modal
+      renderCartModalItems(totalPrice);
+    }
+
+    // RENDER ITEMS INSIDE MODAL
+    function renderCartModalItems(totalPrice) {
+      const container = document.getElementById('cart-items-container');
+      const modalTotal = document.getElementById('modal-total-price');
+
+      modalTotal.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
+      container.innerHTML = '';
+
+      if (cart.length === 0) {
+        container.innerHTML = `
+          <div class="text-center py-8 text-slate-500">
+            <i class="fa-solid fa-basket-shopping text-3xl mb-2 text-slate-700"></i>
+            <p>Keranjang Anda masih kosong.</p>
+          </div>
+        `;
+        return;
+      }
+
+      cart.forEach(item => {
+        const itemEl = document.createElement('div');
+        itemEl.className = "flex items-center justify-between bg-slate-950 p-2.5 rounded-xl border border-slate-800";
+        itemEl.innerHTML = `
+          <div class="flex items-center gap-2">
+            <img src="${item.image}" class="w-10 h-10 rounded-lg object-cover">
+            <div>
+              <div class="font-bold text-white text-xs">${item.name}</div>
+              <div class="text-slate-400 text-[10px]">Rp ${item.price.toLocaleString('id-ID')} x ${item.qty}</div>
+            </div>
+          </div>
+          <div class="flex items-center gap-2">
+            <button onclick="changeQty(${item.id}, -1)" class="w-6 h-6 bg-slate-800 text-slate-300 rounded-lg font-bold flex items-center justify-center hover:bg-slate-700">-</button>
+            <span class="font-bold text-white">${item.qty}</span>
+            <button onclick="changeQty(${item.id}, 1)" class="w-6 h-6 bg-brand-600 text-white rounded-lg font-bold flex items-center justify-center hover:bg-brand-500">+</button>
+          </div>
+        `;
+        container.appendChild(itemEl);
+      });
+    }
+
+    // CHANGE QTY IN CART
+    function changeQty(productId, delta) {
+      const item = cart.find(i => i.id === productId);
+      if (!item) return;
+
+      item.qty += delta;
+      if (item.qty <= 0) {
+        cart = cart.filter(i => i.id !== productId);
+      }
+      updateCartUI();
+    }
+
+    // TOGGLE MODAL CART
+    function toggleCartModal() {
+      const modal = document.getElementById('cart-modal');
+      const isHidden = modal.classList.contains('opacity-0');
+
+      if (isHidden) {
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+      } else {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+      }
+    }
+
+    // FILTER CATEGORY
+    function filterCategory(category) {
+      // Update UI active buttons
+      document.querySelectorAll('.category-btn').forEach(btn => {
+        if (btn.getAttribute('data-category') === category) {
+          btn.className = "category-btn active border px-3.5 py-1.5 rounded-xl font-medium whitespace-nowrap transition bg-brand-600 text-white border-brand-500";
+        } else {
+          btn.className = "category-btn border border-slate-800 bg-slate-900 text-slate-400 hover:text-slate-200 px-3.5 py-1.5 rounded-xl font-medium whitespace-nowrap transition";
+        }
+      });
+
+      if (category === 'all') {
+        renderProducts(PRODUCTS);
+      } else {
+        const filtered = PRODUCTS.filter(p => p.category === category);
+        renderProducts(filtered);
+      }
+    }
+
+    // FILTER BY SEARCH INPUT
+    function filterProducts() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const filtered = PRODUCTS.filter(p => p.name.toLowerCase().includes(query) || p.desc.toLowerCase().includes(query));
+      renderProducts(filtered);
+    }
+
+    // KIRIM PESANAN VIA WHATSAPP (LOGIC UTAMA INTEGRASI UMKM)
+    function sendWhatsAppOrder() {
+      if (cart.length === 0) {
+        alert("Keranjang belanja masih kosong!");
+        return;
+      }
+
+      const nameInput = document.getElementById('customer-name').value.trim();
+      const notesInput = document.getElementById('customer-notes').value.trim();
+
+      if (!nameInput) {
+        alert("Mohon isi Nama Pemesan terlebih dahulu!");
+        return;
+      }
+
+      let message = `Halo *Nasi Goreng Legend*, saya mau pesan:\n\n`;
+      message += `👤 *Nama Pemesan:* ${nameInput}\n`;
+      message += `-----------------------------------\n`;
+      
+      let total = 0;
+      cart.forEach((item, index) => {
+        const subtotal = item.price * item.qty;
+        total += subtotal;
+        message += `${index + 1}. *${item.name}*\n   ${item.qty}x @ Rp ${item.price.toLocaleString('id-ID')} = Rp ${subtotal.toLocaleString('id-ID')}\n`;
+      });
+
+      message += `-----------------------------------\n`;
+      message += `💰 *TOTAL BAYAR: Rp ${total.toLocaleString('id-ID')}*\n\n`;
+      
+      if (notesInput) {
+        message += `📝 *Catatan Pemesan:* "${notesInput}"\n\n`;
+      }
+
+      message += `Mohon segera diproses ya kak, terima kasih! 🔥`;
+
+      const encodedURL = `https://wa.me/${ADMIN_WHATSAPP}?text=${encodeURIComponent(message)}`;
+      window.open(encodedURL, '_blank');
+    }
+
+    // MODAL LOKASI
+    function showLocationModal() {
+      document.getElementById('location-modal').classList.remove('opacity-0', 'pointer-events-none');
+    }
+
+    function closeLocationModal() {
+      document.getElementById('location-modal').classList.add('opacity-0', 'pointer-events-none');
+    }
+  </script>
+</body>
+</html>
